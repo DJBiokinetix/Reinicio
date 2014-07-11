@@ -22,7 +22,7 @@ public class AutoRestart extends JavaPlugin
     }
     if (!getConfig().contains("Restart.Message"))
     {
-      getConfig().set("Restart.Message", "&4El servidor está reiniciando y debe estar de vuelta en 5 minutos");
+      getConfig().set("Restart.Message", "[Reinicio] El Servidor se a Reiniciado,Volvemos unos Segundos.");
       saveConfig();
     }
     this.restartMsg = getConfig().getString("Restart.Message");
@@ -63,7 +63,7 @@ public class AutoRestart extends JavaPlugin
         }
         if (Main.this.timeRemaining == three)
         {
-          Bukkit.broadcastMessage(ChatColor.RED + threewarn);
+          Bukkit.broadcastMessage(ChatColor.GREEN + threewarn);
             Main.this.MidBeep();
         }
         if (Main.this.timeRemaining == four)
@@ -98,7 +98,7 @@ public class AutoRestart extends JavaPlugin
         }
         if (Main.this.timeRemaining < 1)
         {
-          Bukkit.broadcastMessage(ChatColor.RED + "[Reinicio] El Servidor se a Reiniciado,Volvemos unos Segundos.");
+          Bukkit.broadcastMessage(ChatColor.RED + "Restarting!");
           Main.this.Restart(Main.this.restartMsg);
         }
       }
@@ -165,9 +165,9 @@ public class AutoRestart extends JavaPlugin
           else
           {
             sender.sendMessage(ChatColor.DARK_AQUA + "Ayuda:");
-            sender.sendMessage(ChatColor.AQUA + "/Reinicio set [Time] [H/M/S]");
-            sender.sendMessage(ChatColor.AQUA + "/Reinicio Ahora");
-            sender.sendMessage(ChatColor.AQUA + "/Reinicio EMS [Mensaje]");
+            sender.sendMessage(ChatColor.AQUA + "/reinicio set [Tiempo] [H/M/S]");
+            sender.sendMessage(ChatColor.AQUA + "/reinicio Ahora");
+            sender.sendMessage(ChatColor.AQUA + "/reinicio EMS [Mensaje]");
           }
         }
         else {
@@ -175,7 +175,7 @@ public class AutoRestart extends JavaPlugin
         }
       }
       else {
-        sender.sendMessage(ChatColor.GOLD + "Reinicio en: " + ChatColor.GREEN + this.timeRemaining + " Segundos" + ChatColor.GOLD + " O " + ChatColor.DARK_AQUA + this.timeRemaining / 60 + " Minutos" + ChatColor.GOLD + " O " + ChatColor.AQUA + this.timeRemaining / 60 / 60 + " Horas" + ChatColor.GOLD + "!");
+        sender.sendMessage(ChatColor.GOLD + "Reinicio en: " + ChatColor.GREEN + this.timeRemaining + " Segundos" + ChatColor.GOLD + ", " + ChatColor.DARK_AQUA + this.timeRemaining / 60 + " Minutos" + ChatColor.GOLD + " y " + ChatColor.AQUA + this.timeRemaining / 60 / 60 + " Horas" + ChatColor.GOLD + "!");
       }
       return true;
     }
